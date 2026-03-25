@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    springBootVersion = '3.3.5'
+}
+
+dependencies {
+    implementation "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-validation:${springBootVersion}"
+
+    testImplementation "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
